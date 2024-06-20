@@ -94,3 +94,7 @@ posts.forEach((element) =>{
 </div>`
 
 })
+
+// Recupero bottone like
+
+let btnLike = document.querySelector(".js-like-button")
