@@ -66,7 +66,7 @@ posts.forEach((element) =>{
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${element.author.image}" alt="${element.author.name}">                    
+                    <img class="profile-pic" src="${element.author.image}" alt="${element.author.name}">                  
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${element.author.name}</div>
@@ -102,13 +102,13 @@ const likeArrey = [];
 // Recupero bottone like
 
 let btnSLike = document.querySelectorAll(".js-like-button");
-let counters = document.querySelectorAll(".js-likes-counter")
+let counters = document.querySelectorAll(".js-likes-counter");
 
 btnSLike.forEach((el, i)=>{
     el.addEventListener("click",
         (event)=> {
             event.preventDefault();
-            const likeCounter = counters[i];
+            let likeCounter = counters[i];
             if (el.classList.contains("like-button--liked")){
                 posts[i].likes--;
             } else {
@@ -116,6 +116,8 @@ btnSLike.forEach((el, i)=>{
             }
             el.classList.toggle("like-button--liked");
             likeCounter.innerHTML = posts[i].likes;
+            likeArrey.push(likeCounter.id)
+            console.log(likeArrey)
         }
     )
 })
